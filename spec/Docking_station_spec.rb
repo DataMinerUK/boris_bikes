@@ -11,5 +11,8 @@ describe DockingStation do
     expect(bike).to be_working
   end
 
+  it 'will dock a bike if it is not at full capacity' do
+    expect(subject).to respond_to(:dock).with(1).argument
+  end
 
 end
