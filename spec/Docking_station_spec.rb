@@ -6,6 +6,10 @@ describe DockingStation do
     expect(subject).to respond_to :release_bike
   end
 
-  
+  it 'releases new bikes' do
+    bike = subject.release_bike
+    expect(bike).to be :working
+  end
+
 
 end
