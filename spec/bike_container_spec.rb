@@ -1,4 +1,5 @@
 require './lib/bike_container'
+require './lib/bike'
 
 shared_examples_for BikeContainer do
   it 'has a default capacity when initialized' do
@@ -14,7 +15,7 @@ shared_examples_for BikeContainer do
   end
 
   describe 'add_bike' do
-    
+
     it 'receives a bike' do
       subject.add_bike double :bike
       expect(subject).not_to be_empty
@@ -25,6 +26,26 @@ shared_examples_for BikeContainer do
       expect{subject.add_bike double(:bike)}.to raise_error "#{described_class.name} full"
     end
 
+  end
+
+  describe 'remove_bike' do
+    let(:bike) {Bike.new}
+    before(:each) {subject.add_bike bike}
+
+    it 'returns a bike' do
+      expect(subject.remove_bike).to eq bike
+    end
+
+    it 'removes bike from the collection' do
+      subject.remove_bike
+      expect(subject).to be_empty
+    end
+
+    it 'raises an error when empty' do
+      subject.remove_bike
+      expect{subject.remove_bike}.to raise_error "#{described_class.name} empty"
+
+    end
   end
 
 end
