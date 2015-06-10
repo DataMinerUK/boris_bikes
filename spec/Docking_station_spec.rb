@@ -8,7 +8,7 @@ describe DockingStation do
 
   it 'releases new bikes' do
     bike = subject.release_bike
-    expect(bike).to be :working
+    expect(bike).to be_working
   end
 
 
