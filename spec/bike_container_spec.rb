@@ -12,6 +12,21 @@ shared_examples_for BikeContainer do
       expect(subject.capacity).to eq random_capacity
     end
   end
+
+  describe 'add_bike' do
+    
+    it 'receives a bike' do
+      subject.add_bike double :bike
+      expect(subject).not_to be_empty
+    end
+
+    it 'raises error when full' do
+      subject.capacity.times{subject.add_bike double(:bike)}
+      expect{subject.add_bike double(:bike)}.to raise_error "#{described_class.name} full"
+    end
+
+  end
+
 end
 
 class BikeContainerTest; include BikeContainer; end
