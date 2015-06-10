@@ -22,11 +22,13 @@ class DockingStation
 
   private
 
+  attr_reader :bikes
+
   def full?
-    @bikes.count >= @capacity
+    bikes.count >= @capacity
   end
 
   def empty?
-    @bikes.empty?
+    bikes.empty?
   end
 end
