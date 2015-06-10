@@ -1,5 +1,9 @@
-describe 'Docking_stations' do
+require './lib/docking_station'
+
+describe 'docking_station' do
+
   it 'returns docking station instance' do
-    expect(docking_station.new).to eq 'I exist'
+    expect(DockingStation.new.class).to eq DockingStation
   end
+
 end
