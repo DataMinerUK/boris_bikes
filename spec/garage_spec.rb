@@ -5,9 +5,9 @@ describe Garage do
   it_behaves_like BikeContainer
 
   it 'fixes broken bikes' do
-    bike = double :bike
+    bike = double :bike, fix: nil, broken?: false
     subject.add_bike bike
-    expect(bike).to receive :fix
     subject.fix_bikes
+    expect(bike).not_to be_broken
   end
 end
