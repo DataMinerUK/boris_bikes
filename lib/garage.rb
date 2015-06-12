@@ -3,9 +3,9 @@ require_relative 'bike_container'
 class Garage
   include BikeContainer
 
-  def accept bike
-    bike.fix
-    add_bike bike
+  def fix_bikes
+    @bikes.each{|bike| bike.fix}
   end
+
 
 end
